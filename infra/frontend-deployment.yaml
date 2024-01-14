@@ -14,10 +14,19 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/your-project/frontend-image:tag
+        image: asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-ui:latest
         env:
-        - name: REACT_APP_BACKEND_URL
-          value: backend-service:8080
+        - name: BACKEND_URL
+          value: http://backend-deployment:3000
+        ports:
+        - containerPort: 3001
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
@@ -28,6 +37,6 @@ spec:
     app: frontend
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 3001
+      targetPort: 3001
   type: LoadBalancer

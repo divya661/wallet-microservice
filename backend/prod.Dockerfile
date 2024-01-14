@@ -13,6 +13,17 @@ RUN npm install
 # Copy the rest of the application code to the container
 COPY . .
 
+ARG DB_HOST
+ENV DB_HOST $DB_HOST
+ARG DB_USERNAME
+ENV DB_USERNAME $DB_USERNAME
+ARG DB_PASSWORD
+ENV DB_PASSWORD $DB_PASSWORD
+ARG DB_PORT
+ENV DB_PORT $DB_PORT
+ARG DB_NAME
+ENV DB_NAME $DB_NAME
+
 # Set the NODE_ENV to production
 ENV NODE_ENV=production
 

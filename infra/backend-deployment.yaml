@@ -14,25 +14,25 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gcr.io/your-project/backend-image:tag
+        image: asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-service:latest
         env:
         - name: DB_HOST
-          value: mysql-service
-        - name: DB_USER
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: username
+          value: "34.93.251.75"
+        - name: DB_USERNAME
+          value: "divya"
         - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: password
+          value: "divya"
         - name: DB_NAME
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: database
+          value: "wallet"
+        - name: DB_PORT
+          value: "3306"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
@@ -43,6 +43,6 @@ spec:
     app: backend
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
-  type: ClusterIP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer

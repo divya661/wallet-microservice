@@ -67,16 +67,15 @@ const Transaction = sequelize.define("Transactions", {
 Wallet.hasMany(Transaction, { foreignKey: "walletId" });
 Transaction.belongsTo(Wallet, { foreignKey: "walletId" });
 
-// sequelize
-//     .sync()
-//     .then(() => {
-//         console.log("Models synchronized with the database.");
-//     })
-//     .catch((error) => {
-//         console.error("Error synchronizing models:", error);
-//     })
-//     .finally(() => {
-//         sequelize.close();
-//     });
+sequelize
+    .sync()
+    .then(() => {
+        console.log("Models synchronized with the database.");
+    })
+    .catch((error) => {
+        console.error("Error synchronizing models:", error);
+    })
+    .finally(() => {
+    });
 
 module.exports = { Wallet, Transaction };

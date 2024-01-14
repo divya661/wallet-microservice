@@ -16,6 +16,9 @@ RUN npm install --force
 # Copy the rest of the application code to the container
 COPY . .
 
+# Set the NODE_ENV to development
+ENV NODE_ENV=development
+
 # Build the React app (you might adjust this based on your build process)
 RUN npm run start
 

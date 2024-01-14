@@ -14,18 +14,25 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/mysql:latest
+        image: asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/mysql:ci
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: "root"
+          value: "divya"
         - name: MYSQL_DATABASE
           value: "wallet"
         - name: MYSQL_USER
-          value: "root"
+          value: "divya"
         - name: MYSQL_PASSWORD
           value: "divya"
         ports:
         - containerPort: 3306
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
 ---
 apiVersion: v1
 kind: Service

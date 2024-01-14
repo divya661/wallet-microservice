@@ -1,11 +1,11 @@
 const { Sequelize } = require("sequelize");
 const config = require("config");
 
-const DB_NAME = config.get("database_name");
-const DB_PASSWORD = config.get("database_password");
-const DB_USERNAME = config.get("database_username");
-const DB_HOST = config.get("database_host");
-const DB_PORT = config.get("database_port");
+const DB_NAME = process.env.DB_NAME || config.get("database_name");
+const DB_PASSWORD = process.env.DB_PASSWORD || config.get("database_password");
+const DB_USERNAME = process.env.DB_USERNAME || config.get("database_username");
+const DB_HOST = process.env.DB_HOST || config.get("database_host");
+const DB_PORT = process.env.DB_PORT || config.get("database_port");
 
 const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
     host: DB_HOST,
@@ -13,7 +13,7 @@ const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
     dialect: "mysql",
 });
 
-sequelize
+ sequelize
     .authenticate()
     .then(() => {
         console.log("Connection has been established successfully.");

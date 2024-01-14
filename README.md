@@ -16,6 +16,7 @@ This is a simple wallet system backend service that supports the setup of wallet
   - [3. SQL Queries](#3-sql-queries)
   - [4. Database Configuration](#4-project-configuration-environment-wise)
   - [5. Environment Variables](#5-environment-variables)
+  - [6. Deploying to GKE:](#6-deploying-to-gke)
 
 ## Setup
 
@@ -249,4 +250,40 @@ Configure your database connection in either of `config/default.json`, `config/d
 
 ### 5. **Environment Variables**
 Set environment variables for sensitive information like database credentials.
+
+### 6. Deploying to GKE:  
+#### Connecting to cluster using gcloud  
+- `gcloud container clusters get-credentials wallet-cluster-1 --zone asia-south1`
+
+#### Apply the YAML files using kubectl for docker container image deployment in the cluster:  
+- `kubectl apply --validate=true -f mysql-deployment.yaml`  
+- `kubectl apply --validate=true -f backend-deployment.yaml`    
+- `kubectl apply --validate=true -f frontend-deployment.yaml`  
+
+#### Monitor the deployment:  
+- `kubectl get pods -w`  
+
+#### Build, Tag & Pushing into Artifact Registry in GCP:  
+- `docker build -f ./prod.Dockerfile -t wallet-service:latest .`  
+- `docker build -f ./prod.Dockerfile -t wallet-ui:latest .`  
+- `docker tag wallet-service asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-service:latest`  
+- `docker tag wallet-ui asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-ui:latest`  
+- `docker tag mysql asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/mysql:latest`  
+- `docker push asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/mysql:latest`  
+- `docker push asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-service:latest`  
+- `docker push asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-ui:latest`  
+
+#### Other useful commands:
+- Get all services running in the cluster with there respective internal & external IP & port, etc  
+- `kubectl get services -n default`  
+- Get all pods info:  
+- `kubectl get pods`  
+```plaintext
+NAME                                  READY   STATUS    RESTARTS   AGE
+backend-deployment-f75cbb499-xk5zw    1/1     Running   0          2m34s
+frontend-deployment-6f5496cf8-ktdqz   1/1     Running   0          13m
+mysql-deployment-5df766c588-p4t8n     1/1     Running   0          4h9m
+```
+- Watch the logs of the pod:   
+- `kubectl logs <pod_name> -f`  
 
