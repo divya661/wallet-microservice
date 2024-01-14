@@ -26,7 +26,7 @@ services:
       context: ./frontend
       dockerfile: prod.Dockerfile
     ports:
-      - "3001:3000"
+      - "3001:3001"
     environment:
       NODE_ENV: "production"
     depends_on:

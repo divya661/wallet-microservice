@@ -1,6 +1,6 @@
 # /frontend/Dockerfile
 # Use an official Node runtime as a base image
-FROM node:18-alpine
+FROM --platform=linux/amd64 node:18-alpine
 
 # Set the working directory in the container
 WORKDIR /app/frontend
@@ -20,7 +20,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 3001
 
 # Start the application
-CMD ["npm", "start"]
+CMD "node server.js"
