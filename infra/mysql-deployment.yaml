@@ -14,18 +14,18 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: gcr.io/your-project/mysql-image:tag
+        image: asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/mysql:latest
         env:
         - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: root-password
+          value: "root"
         - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: database
+          value: "wallet"
+        - name: MYSQL_USER
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "divya"
+        ports:
+        - containerPort: 3306
 ---
 apiVersion: v1
 kind: Service
@@ -38,4 +38,3 @@ spec:
     - protocol: TCP
       port: 3306
       targetPort: 3306
-  type: ClusterIP
