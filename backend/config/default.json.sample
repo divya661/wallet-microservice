@@ -1,0 +1,10 @@
+{
+    "database_name": "wallet",
+    "database_username": "<database_username>",
+    "database_password": "<database_password>",
+    "database_host": "localhost",
+    "server": {
+        "port": 3000,
+        "host": "localhost"
+    }
+}

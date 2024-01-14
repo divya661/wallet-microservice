@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dev.Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: "development"
+    depends_on:
+      - mysql
+    network_mode: "host"
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: "wallet"
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+    network_mode: "host"
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dev.Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      NODE_ENV: "development"
+    depends_on:
+      - backend
+      - mysql

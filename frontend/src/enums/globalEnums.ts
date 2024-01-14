@@ -1,0 +1,4 @@
+export enum TRANSACTION_TYPES {
+  CREDIT = 'CREDIT',
+  DEBIT = 'DEBIT'
+}
