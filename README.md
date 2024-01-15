@@ -369,5 +369,7 @@ frontend-deployment-6f5496cf8-ktdqz   1/1     Running   0          13m
 mysql-deployment-5df766c588-p4t8n     1/1     Running   0          4h9m
 ```
 - Watch the logs of the pod:   
-- `kubectl logs <pod_name> -f`  
-
+`kubectl logs <pod_name> -f`  
+- Access mysql:  
+`mysql -u divya --host 34.93.251.75 --port 3306 -p`  
+will prompt to enter password: `divya`
