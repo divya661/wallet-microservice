@@ -10,14 +10,14 @@
         "lint:fix": "eslint --fix src",
         "prepare": "husky install"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "husky": {
         "hooks": {
             "pre-commit": "npm run lint && npx commitlint --edit $1"
         }
     },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
     "dependencies": {
         "body-parser": "^1.20.2",
         "config": "^3.3.10",
