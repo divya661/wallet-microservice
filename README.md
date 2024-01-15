@@ -235,6 +235,8 @@ MYSQL setup:
 - `winston:` Logging library for Node.js, offering flexible and extensible logging capabilities.
 - `yup:` JavaScript schema builder for value parsing and validation.
 - `sequelize-cli:` Command-line interface for Sequelize ORM, facilitating database migrations and model generation.
+##### Development Depencies
+- `eslint`: To find & fix common errors in javascript following standard style guide
 
 #### Frontend
 - `react`: A JavaScript library for building user interfaces, particularly for single-page applications where UI updates are dynamic.
@@ -260,6 +262,10 @@ MYSQL setup:
 -`react-table`: A lightweight and extensible data grid/table for React, providing features for sorting, filtering, and pagination.
 
 - `react-toastify`: A toast notification library for React applications, allowing you to display non-intrusive notifications.
+##### Development Depencies
+- `eslint`: To find & fix common errors in javascript following standard style guide
+- `prettier`: To format codebase & have consistent style.
+- `husky`: To create pre-commit git hook 
 
 #### Infrastructure
 - Install gcloud cli - https://cloud.google.com/sdk/docs/install
