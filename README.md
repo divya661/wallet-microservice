@@ -2,9 +2,14 @@
 
 This is a simple wallet system backend service that supports the setup of wallets, credit/debit transactions, fetching transactions, and getting wallet details.
 
-## **Website URL:** http://34.100.147.31:3001/  
-### Explanation video - 
-### See screenshot - 
+### **Website URL:** http://34.100.147.31:3001/  
+### Check Explanation video -
+- Inside `/project info/explanation video.mkv` directory  
+- [Inside Github repo](https://github.com/divya661/wallet-microservice/blob/master/project%20info/explanation%20video.mkv)
+
+### See screenshot -
+- Inside `/project info/screenshots`
+- [Inside Github repo](https://github.com/divya661/wallet-microservice/tree/master/project%20info/screenshots)
 
 ## Table of Contents
 - [Prerequisite](#prerequisite)
