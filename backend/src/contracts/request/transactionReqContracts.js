@@ -5,7 +5,7 @@ const transactRequestContract = yup.object().shape({
   amount: yup
     .number()
     .typeError('Amount must be a number')
-    .min(0, 'Amount should be greater than 0')
+    .min(-100000, 'Amount should be greater than -100000')
     .max(100000, 'Amount should be less than 100000')
     .required('Amount is required'),
   description: yup
