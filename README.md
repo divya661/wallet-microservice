@@ -5,7 +5,7 @@ This is a simple wallet system backend service that supports the setup of wallet
 ### **Website URL:** http://34.100.147.31:3001/  
 ### Check Explanation video -
 - Inside `/project info/explanation video.mkv` directory  
-- [Inside Github repo](https://github.com/divya661/wallet-microservice/blob/master/project%20info/explanation%20video.mkv)
+- [Download from Github repo](https://github.com/divya661/wallet-microservice/blob/master/project%20info/explanation%20video.mkv)
 
 ### See screenshot -
 - Inside `/project info/screenshots`
