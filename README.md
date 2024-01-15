@@ -4,7 +4,7 @@ This is a simple wallet system backend service that supports the setup of wallet
 ## **Website URL:** http://34.100.147.31:3001/  
 ## Table of Contents
 
-- [Setup](#setup)
+- [Project Setup](#project-setup)
 - [API Endpoints](#api-endpoints)
   - [1. Setup Wallet](#1-setup-wallet)
   - [2. Credit/Debit Amount](#2-creditdebit-amount)
@@ -15,10 +15,9 @@ This is a simple wallet system backend service that supports the setup of wallet
   - [2. Dependencies](#2-dependencies)
   - [3. SQL Queries](#3-sql-queries)
   - [4. Database Configuration](#4-project-configuration-environment-wise)
-  - [5. Environment Variables](#5-environment-variables)
-  - [6. Deploying to GKE:](#6-deploying-to-gke)
+  - [5. Deploying to GKE:](#6-deploying-to-gke)
 
-## Setup
+## Project Setup 
 
 - Clone the repository:
 
@@ -27,6 +26,9 @@ This is a simple wallet system backend service that supports the setup of wallet
    cd wallet-system
    ```
 
+Backend Setup:
+- Open terminal & switch of backend directory  
+ `cd backend`
 - Install dependencies:  
 ```npm install```
 - Configure the database:
@@ -35,6 +37,24 @@ This is a simple wallet system backend service that supports the setup of wallet
 ```npm run start```
 
    The server will be running at http://localhost:3000 by default.
+
+Frontend Setup:
+- Open terminal & switch of frontend directory  
+ `cd frontend`
+- Install dependencies:  
+```npm install```
+- Run the UI:  
+```npm run start```
+
+  The server will be running at http://localhost:3001 by default
+
+MYSQL setup:  
+- run below commond in terminal using docker-compose for reacting mysql running inside docker container  
+`docker compose  -f "docker-compose.dev.yaml" up -d --build mysql`  
+- Run below command in new terminal to connect to mysql  
+`docker exec -it wallet-microservice-mysql-1 mysql -u root -p`
+- Enter root password: `root` 
+- PS: we can update root password for security
 
 ## API Endpoints
 ### 1. **Setup Wallet**
@@ -162,13 +182,31 @@ This is a simple wallet system backend service that supports the setup of wallet
             /middleware
             /config
             app.js
-        .gitignore
         package.json
-        Dockerfile
-        docker-compose.yaml
+        dev.Dockerfile
+        prod.Dockerfile
     /frontend
-
-README.md
+      /src
+        /components
+          /common
+            /atoms
+            /molecules
+        /constants
+        /enums
+        /services
+        /utils
+      App.tsx
+      /public
+      package.json
+      dev.Dockerfile
+      prod.Dockerfile
+    /infra
+      backend-deployment.yaml
+      frontend-deployment.yaml
+      mysql-deployment.yaml
+  docker-compose.dev.yaml
+  docker-compose.prod.yaml
+  README.md
 
 ```
 
@@ -248,10 +286,7 @@ ROLLBACK;
 ### 4. **Project Configuration environment-wise**  
 Configure your database connection in either of `config/default.json`, `config/development.json` or `config/production.json` file based on environment usage.
 
-### 5. **Environment Variables**
-Set environment variables for sensitive information like database credentials.
-
-### 6. Deploying to GKE:  
+### 5. Deploying to GKE:  
 #### Connecting to cluster using gcloud  
 - `gcloud container clusters get-credentials wallet-cluster-1 --zone asia-south1`
 
