@@ -354,12 +354,14 @@ Configure your database connection in either of `config/default.json`, `config/d
 #### Monitor the deployment:  
 - `kubectl get pods -w`  
 
-#### Build, Tag & Pushing into Artifact Registry in GCP:  
+#### Build Docker Images:  
 - `docker build -f ./prod.Dockerfile -t wallet-service:latest .`  
 - `docker build -f ./prod.Dockerfile -t wallet-ui:latest .`  
+#### Tag the docker images for Artifact Registry:
 - `docker tag wallet-service asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-service:latest`  
 - `docker tag wallet-ui asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-ui:latest`  
 - `docker tag mysql asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/mysql:latest`  
+#### Push docker images into the GCP Artifact Registry:
 - `docker push asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/mysql:latest`  
 - `docker push asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-service:latest`  
 - `docker push asia-south1-docker.pkg.dev/maximal-mason-411208/wallet/wallet-ui:latest`  
