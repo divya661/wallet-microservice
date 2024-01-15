@@ -1,0 +1,839 @@
+{
+	"info": {
+		"_postman_id": "28c73aec-ecde-48a5-9a39-a31b5cc12fa6",
+		"name": "wallet-transaction",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14440254"
+	},
+	"item": [
+		{
+			"name": "Health/ Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER_URL}}",
+					"host": [
+						"{{SERVER_URL}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Status:ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_URL}}",
+							"host": [
+								"{{SERVER_URL}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f-VaSQ4oDUiZblZNAEkkN+sX+q3Sg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 18:39:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"ok\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Setup Wallet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"\",\n    \"balance\":\"0o\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER_URL}}/wallet/setup",
+					"host": [
+						"{{SERVER_URL}}"
+					],
+					"path": [
+						"wallet",
+						"setup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "wallet created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"new_divya\",\n    \"balance\":1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/wallet/setup",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"wallet",
+								"setup"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "130"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"82-m7uq5ZwXbJmKV2qF3oWZWD0Px2Y\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 18:46:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"transactionId\": \"e62c340c-1b0f-46e3-9485-b5d35c21b857\",\n    \"date\": \"15/1/2024, 6:46:38 pm\",\n    \"name\": \"new_divya\",\n    \"balance\": 1000,\n    \"id\": \"2\"\n}"
+				},
+				{
+					"name": "error-not created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"new_divya\",\n    \"balance\":-1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/wallet/setup",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"wallet",
+								"setup"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"30-gkIb/xH6acWjmHsTigGondLtOmM\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 18:47:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"Balance must be a positive number\"\n    ]\n}"
+				},
+				{
+					"name": "name is required & balance>0",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"\",\n    \"balance\":\"0o\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/wallet/setup",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"wallet",
+								"setup"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3a-krcV/xQj1c07a2lACKIpuBM7lqM\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 18:56:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"Balance must be a number\",\n        \"Name is required\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Make transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": -100000000.5,\n    \"description\": \"electricity bill\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER_URL}}/transact/2",
+					"host": [
+						"{{SERVER_URL}}"
+					],
+					"path": [
+						"transact",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "credit-transaction",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 10.5,\n    \"description\": \"Recharge\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/transact/2",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"transact",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-6q5veM5mn39n/8eEfzcPUMudhSI\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 18:59:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"balance\": 1010.5,\n    \"transactionId\": \"9d0b37d6-7736-4018-8b81-947d2f2e51dc\"\n}"
+				},
+				{
+					"name": "validation error amount>-100000",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": -100000000.5,\n    \"description\": \"electricity bill\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/transact/2",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"transact",
+								"2"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-Qrld/Miei+u8i9fLXLEVZpLypIg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 19:04:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"Amount should be greater than -100000\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "fetch wallet transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER_URL}}/transactions?walletId=1&skip=0&limit=5",
+					"host": [
+						"{{SERVER_URL}}"
+					],
+					"path": [
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "walletId",
+							"value": "1"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "page 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_URL}}/transactions?walletId=1&skip=0&limit=5",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "walletId",
+									"value": "1"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "816"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"330-nrX4zz9jNq6vuuPb4aobsNpkHYg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 19:08:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"type\": \"DEBIT\",\n        \"date\": \"15/1/2024, 7:07:45 pm\",\n        \"description\": \"chocolate\",\n        \"balance\": 111000,\n        \"amount\": 10,\n        \"walletId\": \"1\",\n        \"id\": \"fbb823b7-a5bf-44d1-b10e-674849b9d859\"\n    },\n    {\n        \"type\": \"DEBIT\",\n        \"date\": \"15/1/2024, 7:07:32 pm\",\n        \"description\": \"snacks\",\n        \"balance\": 111010,\n        \"amount\": 100,\n        \"walletId\": \"1\",\n        \"id\": \"749b965f-6848-42a3-9d2f-71bfe6692b7d\"\n    },\n    {\n        \"type\": \"CREDIT\",\n        \"date\": \"15/1/2024, 7:07:08 pm\",\n        \"description\": \"interest bank\",\n        \"balance\": 111110,\n        \"amount\": 10000,\n        \"walletId\": \"1\",\n        \"id\": \"40d5dfac-c7a1-45d3-8587-d566a2322218\"\n    },\n    {\n        \"type\": \"CREDIT\",\n        \"date\": \"15/1/2024, 7:06:56 pm\",\n        \"description\": \"cashback\",\n        \"balance\": 101110,\n        \"amount\": 100,\n        \"walletId\": \"1\",\n        \"id\": \"8ea2ce05-023c-4ba2-b407-c40095706da9\"\n    },\n    {\n        \"type\": \"CREDIT\",\n        \"date\": \"15/1/2024, 7:03:48 pm\",\n        \"description\": \"hh\",\n        \"balance\": 101010,\n        \"amount\": 100000,\n        \"walletId\": \"1\",\n        \"id\": \"fb19bf88-7bf6-4590-9e0b-25ada67dd491\"\n    }\n]"
+				},
+				{
+					"name": "page 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_URL}}/transactions?walletId=1&skip=5&limit=5",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "walletId",
+									"value": "1"
+								},
+								{
+									"key": "skip",
+									"value": "5"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "155"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9b-cro42ITULW22HX126DGbudHIrLc\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 19:08:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"type\": \"CREDIT\",\n        \"date\": \"15/1/2024, 6:45:40 pm\",\n        \"description\": \"hh\",\n        \"balance\": 1010,\n        \"amount\": 10,\n        \"walletId\": \"1\",\n        \"id\": \"150fa4f7-1030-49fb-b016-43a7f34e934c\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get wallet info by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER_URL}}/wallet/1",
+					"host": [
+						"{{SERVER_URL}}"
+					],
+					"path": [
+						"wallet",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get wallet info by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_URL}}/wallet/1",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"wallet",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-fy0sCYzxGy2JEEneOAwZCp9YTFE\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 19:09:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"date\": \"15/1/2024, 6:45:07 pm\",\n    \"name\": \"new__d\",\n    \"balance\": 111000,\n    \"id\": \"1\"\n}"
+				},
+				{
+					"name": "error: wallet not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_URL}}/wallet/1000",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"wallet",
+								"1000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1c-xzQUhpJLdhJ/E8AttvW4otyj1Lc\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 15 Jan 2024 19:10:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Wallet not found\"\n}"
+				}
+			]
+		}
+	]
+}

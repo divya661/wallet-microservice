@@ -2,7 +2,12 @@
 
 This is a simple wallet system backend service that supports the setup of wallets, credit/debit transactions, fetching transactions, and getting wallet details.
 
-### **Website URL:** http://34.100.147.31:3001/  
+### **Website URL:** http://34.100.147.31:3001/ 
+### **Backend Service URL** http://34.100.143.158:3000
+### **MySQL DB Host URL** http://34.93.251.75:3306/
+
+### Postman collection: [import file](https://github.com/divya661/wallet-microservice/blob/master/wallet-transaction.postman_collection.json)
+
 ### Check Explanation video -
 - Inside `/project info/explanation video.mkv` directory  
 - [Download from Github repo](https://github.com/divya661/wallet-microservice/blob/master/project%20info/explanation%20video.mkv)
