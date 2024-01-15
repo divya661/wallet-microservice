@@ -1,9 +1,9 @@
-const { Router } =  require("express");
+const { Router } = require('express');
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.status(200).json({ status: "ok" });
+router.get('/', (req, res) => {
+  res.status(200).json({ status: 'ok' });
 });
 
 module.exports = router;

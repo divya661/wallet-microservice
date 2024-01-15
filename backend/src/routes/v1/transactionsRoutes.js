@@ -1,11 +1,11 @@
-const express = require("express");
+const express = require('express');
 
 const {
-    getRecentTransactionsController,
-} = require("../../controllers/v1/transactionController");
+  getRecentTransactionsController
+} = require('../../controllers/v1/transactionController');
 
 const router = express.Router();
 
-router.get("/", getRecentTransactionsController);
+router.get('/', getRecentTransactionsController);
 
 module.exports = router;

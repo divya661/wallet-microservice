@@ -1,5 +1,5 @@
 class CustomError extends Error {
-  constructor(message, statusCode, category) {
+  constructor (message, statusCode, category) {
     super(message);
     this.statusCode = statusCode;
     this.category = category;
@@ -8,4 +8,4 @@ class CustomError extends Error {
   }
 }
 
-module.exports =  CustomError;
+module.exports = CustomError;

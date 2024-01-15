@@ -1,8 +1,8 @@
-const CustomError = require("../customError");
+const CustomError = require('../customError');
 
 class InternalServerError extends CustomError {
-  constructor(message) {
-    super(message, 500, "serverError");
+  constructor (message) {
+    super(message, 500, 'serverError');
   }
 }
 

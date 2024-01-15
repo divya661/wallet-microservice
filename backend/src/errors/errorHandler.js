@@ -1,6 +1,6 @@
-const CustomError = require("./customError");
+const CustomError = require('./customError');
 
-function errorHandler(err, req, res, next) {
+function errorHandler (err, req, res, next) {
   if (err instanceof CustomError) {
     const { statusCode, category, message } = err;
 
@@ -14,7 +14,7 @@ function errorHandler(err, req, res, next) {
 
   // Handle other types of errors or unexpected errors
   console.error(err);
-  return res.status(500).json({ error: "Internal Server Error" });
+  return res.status(500).json({ error: 'Internal Server Error' });
 }
 
 module.exports = errorHandler;
