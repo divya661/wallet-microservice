@@ -237,6 +237,7 @@ MYSQL setup:
 - `sequelize-cli:` Command-line interface for Sequelize ORM, facilitating database migrations and model generation.
 ##### Development Depencies
 - `eslint`: To find & fix common errors in javascript following standard style guide
+- `husky`: To create pre-commit git hook for linting & checking commit msg
 
 #### Frontend
 - `react`: A JavaScript library for building user interfaces, particularly for single-page applications where UI updates are dynamic.
@@ -265,7 +266,7 @@ MYSQL setup:
 ##### Development Depencies
 - `eslint`: To find & fix common errors in javascript following standard style guide
 - `prettier`: To format codebase & have consistent style.
-- `husky`: To create pre-commit git hook 
+- `husky`: To create pre-commit git hook for linting & checking commit msg
 
 #### Infrastructure
 - Install gcloud cli - https://cloud.google.com/sdk/docs/install
