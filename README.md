@@ -1,7 +1,11 @@
 # Wallet System API
 
 This is a simple wallet system backend service that supports the setup of wallets, credit/debit transactions, fetching transactions, and getting wallet details.
+
 ## **Website URL:** http://34.100.147.31:3001/  
+### Explanation video - 
+### See screenshot - 
+
 ## Table of Contents
 - [Prerequisite](#prerequisite)
 - [Project Setup](#project-setup)
@@ -58,7 +62,7 @@ MYSQL setup:
 - Run below command in new terminal to connect to mysql  
 `docker exec -it wallet-microservice-mysql-1 mysql -u root -p`
 - Enter root password: `root` 
-- PS: we can update root password for security
+- PS: we can update root password for security & its different in mysql deployed on GKE cluster
 
 ## API Endpoints
 ### 1. **Setup Wallet**
