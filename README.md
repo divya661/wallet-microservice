@@ -3,7 +3,7 @@
 This is a simple wallet system backend service that supports the setup of wallets, credit/debit transactions, fetching transactions, and getting wallet details.
 ## **Website URL:** http://34.100.147.31:3001/  
 ## Table of Contents
-
+- [Prerequisite](#prerequisite)
 - [Project Setup](#project-setup)
 - [API Endpoints](#api-endpoints)
   - [1. Setup Wallet](#1-setup-wallet)
@@ -16,6 +16,10 @@ This is a simple wallet system backend service that supports the setup of wallet
   - [3. SQL Queries](#3-sql-queries)
   - [4. Database Configuration](#4-project-configuration-environment-wise)
   - [5. Deploying to GKE:](#6-deploying-to-gke)
+
+## Prerequisite
+- Docker
+- Gcloud cli & kubectl cli for infrastructure deployment(check infrastructure under dependencies section)
 
 ## Project Setup 
 
@@ -211,10 +215,46 @@ MYSQL setup:
 ```
 
 ### 2. **Dependencies**
+#### Backend
 - `express:` Web framework for Node.js
 - `sequelize:` ORM for SQL databases
 - `mysql2:` MySQL database driver
 - `body-parser:` Middleware to parse JSON requests
+- `config:` Configuration management library for Node.js applications.
+- `mysql:` A Node.js driver for MySQL databases.
+- `nodemon:` Utility that monitors for changes in your Node.js application and automatically restarts the server.
+- `winston:` Logging library for Node.js, offering flexible and extensible logging capabilities.
+- `yup:` JavaScript schema builder for value parsing and validation.
+- `sequelize-cli:` Command-line interface for Sequelize ORM, facilitating database migrations and model generation.
+
+#### Frontend
+- `react`: A JavaScript library for building user interfaces, particularly for single-page applications where UI updates are dynamic.
+
+- `@emotion/react` Provides a set of utility functions for working with Emotion CSS-in-JS library in React.
+
+- `@emotion/styled`: A styling library for use with Emotion that allows you to write styled components with tagged template literals.
+
+- `axios`:  promise-based HTTP client for the browser and Node.js, making it easy to send asynchronous HTTP requests.
+
+- `express`: For create server so to run the build generated
+
+- `react-csv`: A simple CSV (Comma-Separated Values) parsing and exporting library for React.
+
+- `react-dom`: Provides DOM-specific methods for React, used for rendering React components into the DOM.
+
+- `react-icons`: A collection of popular icons as React components, making it easy to include icons in your React projects.
+
+- `react-router-dom`: Provides routing capabilities for React applications, enabling navigation and handling of URLs.
+
+- `react-scripts`: A set of scripts and configurations used by Create React App to bootstrap and manage React projects.
+
+-`react-table`: A lightweight and extensible data grid/table for React, providing features for sorting, filtering, and pagination.
+
+- `react-toastify`: A toast notification library for React applications, allowing you to display non-intrusive notifications.
+
+#### Infrastructure
+- Install gcloud cli - https://cloud.google.com/sdk/docs/install
+- Install kubectl cli - https://kubernetes.io/docs/tasks/tools/#kubectl
 
 ### 3. **SQL Queries:**
 - **Create database & tables:**
