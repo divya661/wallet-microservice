@@ -9,7 +9,7 @@ export const validateAmount = (input: number) => {
     return ERROR_AMOUNT_INTEGER_VALUES_ONLY_ALLOWED;
   }
 
-  if (input && input > 100000) {
+  if (input && (input > 100000 || input<0)) {
     return ERROR_INVALID_AMOUNT_VALUE;
   }
 

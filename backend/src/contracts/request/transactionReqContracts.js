@@ -4,6 +4,9 @@ const transactRequestContract = yup.object().shape({
   walletId: yup.string('Invalid wallet ID').required('Wallet ID is required'),
   amount: yup
     .number()
+    .typeError('Amount must be a number')
+    .min(0, 'Amount should be greater than 0')
+    .max(100000, 'Amount should be less than 100000')
     .required('Amount is required'),
   description: yup
     .string()

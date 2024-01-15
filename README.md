@@ -72,7 +72,7 @@ MYSQL setup:
 ## API Endpoints
 ### 1. **Setup Wallet**
 
-  - **API Endpoint:** `/setup`  
+  - **API Endpoint:** `/wallet/setup`  
   - **Method:** POST  
   - **Request Body:**  
   ```json
